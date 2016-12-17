@@ -45,7 +45,7 @@ window.onload = function () {
 
     var moldStrip = {
       opacity: stripOpacity,    
-      startValue: 45,
+      startValue: 50,
       endValue: 100,
       color: "#6FED21",
       label: "Possible Mold"
