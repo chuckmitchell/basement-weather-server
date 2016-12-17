@@ -1,26 +1,12 @@
 Rails.application.routes.draw do
 
-  # get 'readings/index'
-
-  # get 'readings/create'
-
-  # get 'readings/new'
-
-  # get 'readings/edit'
-
-  # get 'readings/show'
-
-  # get 'readings/update'
-
-  # get 'readings/destroy'
+  resources :readings
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'readings#index'
-
-  resources :readings
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
