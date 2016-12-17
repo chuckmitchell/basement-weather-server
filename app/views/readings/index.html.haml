@@ -1,15 +1,24 @@
 .page-header
-  = link_to new_reading_path, class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-plus
-    New Reading
-  %h1 Listing readings
+
+.charts
+  %div#temperature-chart.chart{ style: "" }
+  %div#humidity-chart.chart{ style: "" }
+
 
 .table-responsive
+  %h1 Listing readings
+  .new-reading
+    = link_to new_reading_path, class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-plus
+      New Reading
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
+        %th ID
         %th Temperature
         %th Humidity
+        %th Created
+        %th Updated
         %th
         %th
         %th
@@ -17,8 +26,11 @@
     %tbody
       - @readings.each do |reading|
         %tr
+          %td= reading.id
           %td= reading.temperature
           %td= reading.humidity
+          %td= reading.created_at
+          %td= reading.updated_at
           %td= link_to 'Show', reading
           %td= link_to 'Edit', edit_reading_path(reading)
           %td= link_to 'Destroy', reading, data: { confirm: 'Are you sure?' }, method: :delete
