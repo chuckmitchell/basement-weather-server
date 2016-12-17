@@ -1,0 +1,14 @@
+.page-header
+  = link_to readings_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_reading_path(@reading), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show reading
+
+%dl.dl-horizontal
+  %dt Temperature:
+  %dd= @reading.temperature
+  %dt Humidity:
+  %dd= @reading.humidity

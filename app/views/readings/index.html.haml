@@ -1,0 +1,24 @@
+.page-header
+  = link_to new_reading_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Reading
+  %h1 Listing readings
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Temperature
+        %th Humidity
+        %th
+        %th
+        %th
+
+    %tbody
+      - @readings.each do |reading|
+        %tr
+          %td= reading.temperature
+          %td= reading.humidity
+          %td= link_to 'Show', reading
+          %td= link_to 'Edit', edit_reading_path(reading)
+          %td= link_to 'Destroy', reading, data: { confirm: 'Are you sure?' }, method: :delete
