@@ -62,22 +62,25 @@ window.onload = function () {
     loadChart('humidity-chart' ,dataPoints[1], {color: '#A50104', axisY: humidAxisY});
 
     var lastDataPoint = data.pop();
-    updateCurrentConditions({temperature: parseFloat(lastDataPoint.temperature), humidity: parseFloat(lastDataPoint.humidity)});
+    updateCurrentConditions(new Date(lastDataPoint.created_at), {temperature: parseFloat(lastDataPoint.temperature), humidity: parseFloat(lastDataPoint.humidity)});
 
 
   })
 };
 
-var updateCurrentConditions = function(options) {
-  if (options.temperature) {
-    $(".current-conditions .temperature .reading").html(options.temperature+"℃");
+var updateCurrentConditions = function(date, conditions) {
+
+  $(".current-conditions .date").html(date.toUTCString()+"   ");
+
+  if (conditions.temperature) {
+    $(".current-conditions .temperature .reading").html(conditions.temperature+"℃");
   } else {
     $(".current-conditions .temperature").hide();
   }
 
 
-if (options.humidity) {
-    $(".current-conditions .humidity .reading").html(options.humidity+"%");
+if (conditions.humidity) {
+    $(".current-conditions .humidity .reading").html(conditions.humidity+"%");
   } else {
     $(".current-conditions .humidity").hide();
   }

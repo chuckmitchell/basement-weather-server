@@ -4,7 +4,7 @@ class ReadingsController < ApplicationController
   # GET /readings
   # GET /readings.json
   def index
-    @readings = Reading.all.order(:id)
+    @readings = Reading.all.order(:created_at)
   end
 
   # GET /readings/1
