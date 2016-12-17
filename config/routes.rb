@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  resources :readings
+  get 'readings/index'
+
+  get 'readings/create'
+
+  get 'readings/new'
+
+  get 'readings/edit'
+
+  get 'readings/show'
+
+  get 'readings/update'
+
+  get 'readings/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
