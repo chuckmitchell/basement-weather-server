@@ -5,7 +5,6 @@
 
 window.onload = function () {
   $.getJSON('/readings.json', function(data) {
-
     dataPoints = [];
     dataPoints[0] = [];
     dataPoints[1] = [];
@@ -62,8 +61,31 @@ window.onload = function () {
     loadChart('temperature-chart' ,dataPoints[0], {color: '#FCBA04', axisY: tempAxisY});
     loadChart('humidity-chart' ,dataPoints[1], {color: '#A50104', axisY: humidAxisY});
 
+    var lastDataPoint = data.pop();
+    updateCurrentConditions({temperature: parseFloat(lastDataPoint.temperature), humidity: parseFloat(lastDataPoint.humidity)});
+
+
   })
 };
+
+var updateCurrentConditions = function(options) {
+  if (options.temperature) {
+    $(".current-conditions .temperature .reading").html(options.temperature+"℃");
+  } else {
+    $(".current-conditions .temperature").hide();
+  }
+
+
+if (options.humidity) {
+    $(".current-conditions .humidity .reading").html(options.humidity+"%");
+  } else {
+    $(".current-conditions .humidity").hide();
+  }
+
+
+
+
+}
 
 var loadChart = function(container, dataPoints, options) {
   var data = [              
