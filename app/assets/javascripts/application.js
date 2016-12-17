@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var loadChart = function(dataPoints) {
+  console.log(dataPoints);
+  var chart = new CanvasJS.Chart("chartContainer", {
+      title:{
+        //text: "Basement Conditions"              
+      },
+      data: [              
+        {
+          // Change type to "doughnut", "line", "splineArea", etc.
+          type: "spline",
+          dataPoints: dataPoints[0]
+        },
+        {
+          type: "spline",
+          dataPoints: dataPoints[1]
+        }
+      ],
+
+    });
+    chart.render();
+};

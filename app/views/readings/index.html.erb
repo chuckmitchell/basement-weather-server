@@ -2,6 +2,40 @@
 
 <h1>Listing Readings</h1>
 
+<div id="chartContainer" style="height: 300px; width: 100%"></div>
+
+<script type="text/javascript">
+
+
+  window.onload = function () {
+    $.getJSON('/readings.json', function(data) {
+
+      console.log(data);
+
+      dataPoints = [];
+      dataPoints[0] = [];
+      dataPoints[1] = [];
+      for (var i = 0; i < data.length; i++) {
+        var date = new Date(data[i].created_at);
+        var temperature = parseFloat(data[i].temperature);
+        var humidity = parseFloat(data[i].humidity);
+        dataPoints[0].push({
+          x: date, y: temperature
+        });
+        dataPoints[1].push({
+          x: date, y: humidity
+        });
+      }
+
+      loadChart(dataPoints);
+
+    })
+  }
+
+
+
+</script>
+
 <table>
   <thead>
     <tr>
