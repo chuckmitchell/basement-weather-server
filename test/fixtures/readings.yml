@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: readings
+#
+#  id          :integer          not null, primary key
+#  temperature :decimal(, )
+#  humidity    :decimal(, )
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperature: 9.99
+  humidity: 9.99
+
+two:
+  temperature: 9.99
+  humidity: 9.99
