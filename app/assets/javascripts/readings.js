@@ -21,16 +21,15 @@ window.onload = function () {
       });
     }
 
-    var stripOpacity = .4;
+    var stripOpacity = .1;
 
     var aleStrip = {    
       opacity: stripOpacity,    
       startValue:20,
       endValue:22,                
-      color:"#FCF6B1",
+      color:"#FCBA04",
       label:"Ale"
     };
-
     var lagerStrip = {
       opacity: stripOpacity,    
       startValue: 7,
@@ -38,17 +37,30 @@ window.onload = function () {
       color:"#2274A5",
       label:"Lager"
     }
+    var tempAxisY = { 
+      minimum: 5,
+      maximum: 25,
+      title: "Temperature ℃", 
+      stripLines: [aleStrip, lagerStrip]
+    };
 
     var moldStrip = {
       opacity: stripOpacity,    
       startValue: 45,
       endValue: 100,
-      color: "#DCEED1",
+      color: "#6FED21",
       label: "Possible Mold"
     }
+    var humidAxisY = {
+      minimum: 0,
+      maximum: 100,
+      title: "Humidity %", 
+      stripLines: [moldStrip]
+    };
 
-    loadChart('temperature-chart' ,dataPoints[0], {color: '#FCBA04', axisY: { title: "Temperature ℃", stripLines: [aleStrip, lagerStrip]}});
-    loadChart('humidity-chart' ,dataPoints[1], {color: '#A50104', axisY: { title: "Humidity %", stripLines: [moldStrip]}});
+
+    loadChart('temperature-chart' ,dataPoints[0], {color: '#FCBA04', axisY: tempAxisY});
+    loadChart('humidity-chart' ,dataPoints[1], {color: '#A50104', axisY: humidAxisY});
 
   })
 };
