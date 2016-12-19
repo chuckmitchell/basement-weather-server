@@ -62,15 +62,15 @@ window.onload = function () {
     loadChart('humidity-chart' ,dataPoints[1], {color: '#A50104', axisY: humidAxisY});
 
     var lastDataPoint = data.pop();
-    updateCurrentConditions(new Date(lastDataPoint.created_at), {temperature: parseFloat(lastDataPoint.temperature), humidity: parseFloat(lastDataPoint.humidity)});
+    updateCurrentConditions(lastDataPoint.created_at_local, {temperature: parseFloat(lastDataPoint.temperature), humidity: parseFloat(lastDataPoint.humidity)});
 
 
   })
 };
 
-var updateCurrentConditions = function(date, conditions) {
+var updateCurrentConditions = function(dateString, conditions) {
 
-  $(".current-conditions .date").html(date.toUTCString()+"   ");
+  $(".current-conditions .date").html(dateString);
 
   if (conditions.temperature) {
     $(".current-conditions .temperature .reading").html(conditions.temperature+"℃");

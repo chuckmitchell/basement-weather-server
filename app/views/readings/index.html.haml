@@ -14,11 +14,9 @@
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
-        %th ID
         %th Temperature
         %th Humidity
         %th Created
-        %th Updated
         %th
         %th
         %th
@@ -26,11 +24,9 @@
     %tbody
       - @readings.each do |reading|
         %tr
-          %td= reading.id
           %td= reading.temperature
           %td= reading.humidity
-          %td= reading.created_at
-          %td= reading.updated_at
+          %td= reading.created_at.strftime("%b %e %Y %I:%M %Z")
           %td= link_to 'Show', reading
           %td= link_to 'Edit', edit_reading_path(reading)
           %td= link_to 'Destroy', reading, data: { confirm: 'Are you sure?' }, method: :delete

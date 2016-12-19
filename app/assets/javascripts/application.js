@@ -14,4 +14,18 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+$( document ).ready(function() {
+  $.each($('.datetimepicker'), function(index, element) {
+    var date = moment($(element).attr('value'));
+   $(element).datetimepicker({
+        inline: true,
+        sideBySide: true
+    });
+    $(element).data('DateTimePicker').defaultDate(date);
+
+  });
+});
