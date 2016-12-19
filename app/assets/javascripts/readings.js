@@ -42,7 +42,7 @@ $('document').ready(function () {
     var tempAxisY = { 
       minimum: 5,
       maximum: 25,
-      title: "Temperature ℃", 
+      title: "℃", 
       stripLines: [aleStrip, lagerStrip]
     };
 
@@ -56,13 +56,14 @@ $('document').ready(function () {
     var humidAxisY = {
       minimum: 0,
       maximum: 100,
-      title: "Humidity %", 
+      title: "%", 
       stripLines: [moldStrip]
     };
 
 
-    loadChart('temperature-chart' ,dataPoints[0], {color: '#FCBA04', axisY: tempAxisY});
-    loadChart('humidity-chart' ,dataPoints[1], {color: '#A50104', axisY: humidAxisY});
+    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Room Temp"}, color: '#FCBA04', axisY: tempAxisY});
+    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Room Humidity"}, color: '#A50104', axisY: humidAxisY});
+    loadChart('vessel-temp-chart', [], {title: {text: "Vessel Temp"}, color: '#FCBA04', axisY: tempAxisY});
 
   })
 });
@@ -87,10 +88,13 @@ var loadChart = function(container, dataPoints, options) {
     axisY = options.axisY;
   }
 
+  var title = {};
+  if (options.title) {
+    title = options.title;
+  }
+
   var chart = new CanvasJS.Chart(container, {
-      title:{
-        //text: "Basement Conditions"              
-      },
+      title: title,
       axisY: axisY,
       data: data,
 
