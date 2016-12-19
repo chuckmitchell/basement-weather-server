@@ -1,9 +1,12 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
 
+$('document').ready(function () {
 
-window.onload = function () {
+  if ( !($('body').hasClass('readings') && $('body').hasClass('index')) ) {
+    return;
+  }
+
   $.getJSON('/readings.json', function(data) {
     dataPoints = [];
     dataPoints[0] = [];
@@ -61,34 +64,8 @@ window.onload = function () {
     loadChart('temperature-chart' ,dataPoints[0], {color: '#FCBA04', axisY: tempAxisY});
     loadChart('humidity-chart' ,dataPoints[1], {color: '#A50104', axisY: humidAxisY});
 
-    var lastDataPoint = data.pop();
-    updateCurrentConditions(lastDataPoint.created_at_local, {temperature: parseFloat(lastDataPoint.temperature), humidity: parseFloat(lastDataPoint.humidity)});
-
-
   })
-};
-
-var updateCurrentConditions = function(dateString, conditions) {
-
-  $(".current-conditions .date").html(dateString);
-
-  if (conditions.temperature) {
-    $(".current-conditions .temperature .reading").html(conditions.temperature+"℃");
-  } else {
-    $(".current-conditions .temperature").hide();
-  }
-
-
-if (conditions.humidity) {
-    $(".current-conditions .humidity .reading").html(conditions.humidity+"%");
-  } else {
-    $(".current-conditions .humidity").hide();
-  }
-
-
-
-
-}
+});
 
 var loadChart = function(container, dataPoints, options) {
   var data = [              

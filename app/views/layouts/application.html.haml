@@ -17,7 +17,7 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  %body
+  %body{"class": "#{controller_name} #{action_name}"}
     %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
       .container
         .navbar-header
@@ -28,13 +28,13 @@
           /   %span.icon-bar
           = link_to "Basement Weather", root_path, class: "navbar-brand"
         .current-conditions.pull-right
-          %span.date No date set
+          %span.date= @last_reading.created_at.strftime("Last reading on %a, %b %e %Y @ %I:%M %p")
           %span.temperature 
             Temp:
-            %span.reading Nan℃
+            %span.reading= "#{@last_reading.temperature}℃"
           %span.humidity 
             Humidity:
-            %span.reading Nan%
+            %span.reading= "#{@last_reading.humidity}%"
         / #navbar.collapse.navbar-collapse
         /   %ul.nav.navbar-nav
         /     %li.active
