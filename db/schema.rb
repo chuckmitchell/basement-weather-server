@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217052028) do
+ActiveRecord::Schema.define(version: 20161231162323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20161217052028) do
   create_table "readings", force: :cascade do |t|
     t.decimal  "temperature"
     t.decimal  "humidity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.decimal  "probe1_temperature", default: 0.0
   end
 
 end

@@ -19,6 +19,10 @@
     .col-sm-10
       = f.text_field :humidity, class: 'form-control'
   .form-group
+    = f.label :probe1_temperature, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :probe1_temperature, class: 'form-control'
+  .form-group
     = f.label :created_at, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :created_at, {class: 'form-control datetimepicker', "data-provide" => 'datetimepicker'}

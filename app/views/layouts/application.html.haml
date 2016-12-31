@@ -4,7 +4,7 @@
     %meta{charset: "utf-8"}
     %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
-    %meta{content: "Tempurature and humidity records for our underground man cave/", name: "description"}
+    %meta{content: "Tempurature and humidity records for our underground man cave", name: "description"}
     %meta{content: "Charles Mitchell", name: "author"}
     %title Basement Weather
 
@@ -35,6 +35,9 @@
           %span.humidity 
             Humidity:
             %span.reading= "#{@last_reading.humidity}%"
+          %span.probe1 
+            Probe 1:
+            %span.reading= "#{@last_reading.probe1_temperature}%"
         / #navbar.collapse.navbar-collapse
         /   %ul.nav.navbar-nav
         /     %li.active

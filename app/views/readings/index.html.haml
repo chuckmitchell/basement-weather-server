@@ -18,6 +18,7 @@
       %tr
         %th Temperature
         %th Humidity
+        %th Probe 1
         %th Created
         %th
         %th
@@ -28,6 +29,7 @@
         %tr
           %td= reading.temperature
           %td= reading.humidity
+          %td= reading.probe1_temperature
           %td= reading.created_at.strftime("%b %e %Y %I:%M %Z")
           %td= link_to 'Show', reading
           %td= link_to 'Edit', edit_reading_path(reading)

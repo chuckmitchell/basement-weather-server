@@ -11,15 +11,20 @@ $('document').ready(function () {
     dataPoints = [];
     dataPoints[0] = [];
     dataPoints[1] = [];
+    dataPoints[2] = [];
     for (var i = 0; i < data.length; i++) {
       var date = new Date(data[i].created_at);
       var temperature = parseFloat(data[i].temperature);
       var humidity = parseFloat(data[i].humidity);
+      var probe1Temperature = parseFloat(data[i].probe1_temperature);
       dataPoints[0].push({
         x: date, y: temperature
       });
       dataPoints[1].push({
         x: date, y: humidity
+      });
+      dataPoints[2].push({
+        x: date, y: probe1Temperature
       });
     }
 
@@ -63,7 +68,7 @@ $('document').ready(function () {
 
     loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Room Temp"}, color: '#FCBA04', axisY: tempAxisY});
     loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Room Humidity"}, color: '#A50104', axisY: humidAxisY});
-    loadChart('vessel-temp-chart', [], {title: {text: "Vessel Temp"}, color: '#FCBA04', axisY: tempAxisY});
+    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Vessel Temp"}, color: '#FCBA04', axisY: tempAxisY});
 
   })
 });
