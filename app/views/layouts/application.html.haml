@@ -27,17 +27,18 @@
           /   %span.icon-bar
           /   %span.icon-bar
           = link_to "Basement Weather", root_path, class: "navbar-brand"
-        .current-conditions.pull-right
-          %span.date= @last_reading.created_at.strftime("Last reading on %a, %b %e %Y @ %I:%M %p")
-          %span.temperature 
-            Temp:
-            %span.reading= "#{@last_reading.temperature}℃"
-          %span.humidity 
-            Humidity:
-            %span.reading= "#{@last_reading.humidity}%"
-          %span.probe1 
-            Probe 1:
-            %span.reading= "#{@last_reading.probe1_temperature}℃"
+        - if @last_reading.present?
+          .current-conditions.pull-right
+            %span.date= @last_reading.created_at.strftime("Last reading on %a, %b %e %Y @ %I:%M %p")
+            %span.temperature 
+              Temp:
+              %span.reading= "#{@last_reading.temperature}℃"
+            %span.humidity 
+              Humidity:
+              %span.reading= "#{@last_reading.humidity}%"
+            %span.probe1 
+              Probe 1:
+              %span.reading= "#{@last_reading.probe1_temperature}℃"
         / #navbar.collapse.navbar-collapse
         /   %ul.nav.navbar-nav
         /     %li.active
