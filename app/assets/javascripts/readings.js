@@ -103,6 +103,7 @@ var loadChart = function(container, dataPoints, options) {
         {
           // Change type to "doughnut", "line", "splineArea", etc.
           type: "spline",
+          markerSize: 1,
           dataPoints: dataPoints
         }
       ]
