@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :batches do
+    resources :specific_gravities
+  end
+
   resources :readings
 
   # The priority is based upon order of creation: first created -> highest priority.

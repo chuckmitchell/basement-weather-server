@@ -7,7 +7,7 @@
 #  humidity           :decimal(, )
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  probe1_temperature :decimal(, )      default("0.0")
+#  probe1_temperature :decimal(, )      default(0.0)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -1,5 +1,47 @@
 .page-header
 
+- if @last_reading
+  .row.panels
+    .col-md-4
+      .panel.panel-warning
+        .panel-heading
+          .row
+            .col-xs-4
+              %span.glyphicon.glyphicon-fire
+            .col-xs-8.text-right
+              %h1
+                = "#{@last_reading.temperature}℃"
+              Ambiant temperature
+              %br
+              =@last_reading.created_at.strftime("%b %e %Y @ %I:%M %p")
+    .col-md-4
+      .panel.panel-success
+        .panel-heading
+          .row
+            .col-xs-4
+              %span.glyphicon.glyphicon-tint
+            .col-xs-8.text-right
+              %h1
+                = "#{@last_reading.humidity}%"
+              Ambiant humidity
+              %br
+              =@last_reading.created_at.strftime("%b %e %Y @ %I:%M %p")
+    .col-md-4
+      .panel.panel-info
+        .panel-heading
+          .row
+            .col-xs-4
+              %span.glyphicon.glyphicon-fire
+            .col-xs-8.text-right
+              %h1
+                = "#{@last_reading.probe1_temperature}℃"
+              Probe Temperature
+              %br
+              =@last_reading.created_at.strftime("%b %e %Y @ %I:%M %p")
+    .row.last-reading
+      .col-md-12.text-right
+        %p.date= ""
+
 .row.charts
   %div#temperature-chart.chart{ style: "" }
   %div#humidity-chart.chart{ style: "" }

@@ -1,0 +1,28 @@
+.page-header
+  = link_to new_batch_specific_gravity_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Specific gravity
+  %h1 Listing specific_gravities
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Value
+        %th Air Temperature
+        %th Brewing Stage
+        %th Batch
+        %th
+        %th
+        %th
+
+    %tbody
+      - @specific_gravities.each do |specific_gravity|
+        %tr
+          %td= specific_gravity.value
+          %td= specific_gravity.air_temperature
+          %td= specific_gravity.stage
+          %td= specific_gravity.batch_id
+          %td= link_to 'Show', batch_specific_gravity_path(@batch,specific_gravity)
+          %td= link_to 'Edit', edit_batch_specific_gravity_path(@batch,specific_gravity)
+          %td= link_to 'Destroy', batch_specific_gravity_path(@batch,specific_gravity), data: { confirm: 'Are you sure?' }, method: :delete

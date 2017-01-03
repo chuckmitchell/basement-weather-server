@@ -1,0 +1,1 @@
+json.array! @specific_gravities, partial: 'specific_gravities/specific_gravity', as: :specific_gravity

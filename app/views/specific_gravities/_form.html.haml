@@ -1,0 +1,31 @@
+= form_for [@batch, @specific_gravity], html: { class: "form-horizontal", role: "form" } do |f|
+  -if @specific_gravity.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@specific_gravity.errors.count, "error")} prohibited this specific_gravity from being saved:"
+
+      %ul
+        - @specific_gravity.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :value, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :value, class: 'form-control'
+  .form-group
+    = f.label :air_temperature, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :air_temperature, class: 'form-control'
+  .form-group
+    = f.label :stage, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :stage, SpecificGravity::STAGES, class: 'form-control'
+  .form-group
+    = f.label :batch_id, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.number_field :batch_id, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

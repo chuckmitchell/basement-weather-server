@@ -80,7 +80,7 @@ $('document').ready(function () {
       opacity: stripOpacity,    
       startValue: 50,
       endValue: 100,
-      color: "#6FED21",
+      color: "#4C7240",
       label: "Possible Mold"
     }
     var humidAxisY = {
@@ -91,9 +91,9 @@ $('document').ready(function () {
     };
 
 
-    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Room Temp"}, color: '#FCBA04', axisY: tempAxisY, toolTip: tempToolTip});
-    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Room Humidity"}, color: '#A50104', axisY: humidAxisY, toolTip: humidityToolTip});
-    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Vessel Temp"}, color: '#FCBA04', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Room Temp"}, color: '#866D42', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Room Humidity"}, color: '#4C7240', axisY: humidAxisY, toolTip: humidityToolTip});
+    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Vessel Temp"}, color: '#40708C', axisY: tempAxisY, toolTip: tempToolTip});
 
   })
 });

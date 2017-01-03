@@ -1,0 +1,18 @@
+.page-header
+  = link_to @batch, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_batch_specific_gravity_path(@batch,@specific_gravity), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show Specific Gravity
+
+%dl.dl-horizontal
+  %dt Value:
+  %dd= @specific_gravity.value
+  %dt Air Temperature:
+  %dd= @specific_gravity.air_temperature  
+  %dt Type:
+  %dd= @specific_gravity.stage
+  %dt Batch:
+  %dd= @specific_gravity.batch_id
