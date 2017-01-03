@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103210310) do
+ActiveRecord::Schema.define(version: 20170103230839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20170103210310) do
   end
 
   create_table "specific_gravities", force: :cascade do |t|
-    t.decimal  "value",           null: false
-    t.string   "stage",           null: false
-    t.integer  "batch_id",        null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.decimal  "air_temperature"
+    t.decimal  "value",       null: false
+    t.string   "stage",       null: false
+    t.integer  "batch_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.decimal  "temperature"
   end
 
 end

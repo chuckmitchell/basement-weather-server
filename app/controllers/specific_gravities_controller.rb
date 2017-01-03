@@ -74,6 +74,6 @@ class SpecificGravitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def specific_gravity_params
-      params.require(:specific_gravity).permit(:value, :air_temperature, :stage, :batch_id)
+      params.require(:specific_gravity).permit(:value, :temperature, :stage, :batch_id)
     end
 end

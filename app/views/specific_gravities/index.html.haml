@@ -9,7 +9,7 @@
     %thead
       %tr
         %th Value
-        %th Air Temperature
+        %th Temperature
         %th Brewing Stage
         %th Batch
         %th
@@ -20,7 +20,7 @@
       - @specific_gravities.each do |specific_gravity|
         %tr
           %td= specific_gravity.value
-          %td= specific_gravity.air_temperature
+          %td= specific_gravity.temperature
           %td= specific_gravity.stage
           %td= specific_gravity.batch_id
           %td= link_to 'Show', batch_specific_gravity_path(@batch,specific_gravity)

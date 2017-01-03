@@ -19,7 +19,7 @@ class Batch < ActiveRecord::Base
 
     return nil unless original_measurement || final_measurement
 
-    if original_measurement.air_temperature || final_measurement.air_temperature
+    if original_measurement.temperature || final_measurement.temperature
       og = original_measurement.corrected_value
       fg = final_measurement.corrected_value
     else
