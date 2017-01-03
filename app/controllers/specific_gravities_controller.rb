@@ -43,7 +43,7 @@ class SpecificGravitiesController < ApplicationController
   def update
     respond_to do |format|
       if @specific_gravity.update(specific_gravity_params)
-        format.html { redirect_to [@batch,@specific_gravity], notice: 'Specific gravity was successfully updated.' }
+        format.html { redirect_to @batch, notice: 'Specific gravity was successfully updated.' }
         format.json { render :show, status: :ok, location: @specific_gravity }
       else
         format.html { render :edit }
