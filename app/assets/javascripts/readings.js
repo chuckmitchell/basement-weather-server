@@ -17,18 +17,32 @@ $('document').ready(function () {
       var temperature = parseFloat(data[i].temperature);
       var humidity = parseFloat(data[i].humidity);
       var probe1Temperature = parseFloat(data[i].probe1_temperature);
+      var created_at_tokens = data[i].created_at_local.split(" ");
+      var length = created_at_tokens.length;
+      var label = created_at_tokens[length-2]+" "+created_at_tokens[length-1]
       dataPoints[0].push({
-        x: date, y: temperature
+        x: date, y: temperature, label: label
       });
       dataPoints[1].push({
-        x: date, y: humidity
+        x: date, y: humidity, label: label
       });
       dataPoints[2].push({
-        x: date, y: probe1Temperature
+        x: date, y: probe1Temperature, label: label
       });
     }
 
     var stripOpacity = .1;
+
+    var tempToolTip = {
+      contentFormatter: function(e) {
+        var str = "";
+        for (var i = 0; i < e.entries.length; i++) {
+          var  temp = "<span style='color: "+e.entries[i].dataSeries.color+"'>"+e.entries[i].dataPoint.label + "</span> "+  e.entries[i].dataPoint.y + "℃<br/>" ;
+          str = str.concat(temp);
+        }
+        return str;
+      }
+    };
 
     var aleStrip = {    
       opacity: stripOpacity,    
@@ -51,6 +65,17 @@ $('document').ready(function () {
       stripLines: [aleStrip, lagerStrip]
     };
 
+
+    var humidityToolTip = {
+      contentFormatter: function(e) {
+        var str = "";
+        for (var i = 0; i < e.entries.length; i++) {
+          var  temp = "<span style='color: "+e.entries[i].dataSeries.color+"'>"+e.entries[i].dataPoint.label + "</span> "+  e.entries[i].dataPoint.y + "%<br/>" ;
+          str = str.concat(temp);
+        }
+        return str;
+      }
+    };
     var moldStrip = {
       opacity: stripOpacity,    
       startValue: 50,
@@ -66,9 +91,9 @@ $('document').ready(function () {
     };
 
 
-    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Room Temp"}, color: '#FCBA04', axisY: tempAxisY});
-    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Room Humidity"}, color: '#A50104', axisY: humidAxisY});
-    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Vessel Temp"}, color: '#FCBA04', axisY: tempAxisY});
+    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Room Temp"}, color: '#FCBA04', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Room Humidity"}, color: '#A50104', axisY: humidAxisY, toolTip: humidityToolTip});
+    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Vessel Temp"}, color: '#FCBA04', axisY: tempAxisY, toolTip: tempToolTip});
 
   })
 });
@@ -98,11 +123,16 @@ var loadChart = function(container, dataPoints, options) {
     title = options.title;
   }
 
+  var toolTip = {};
+  if (options.toolTip) {
+    toolTip = options.toolTip;
+  }
+
   var chart = new CanvasJS.Chart(container, {
       title: title,
       axisY: axisY,
-      data: data,
-
+      toolTip: toolTip,
+      data: data
     });
     chart.render();
 };
