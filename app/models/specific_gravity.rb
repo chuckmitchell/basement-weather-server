@@ -16,5 +16,18 @@ class SpecificGravity < ActiveRecord::Base
   belongs_to :batch
 
   STAGES = ["Starting Primary", "Intermediate", "Bottling"]
+  CALIBRATION_TEMP_F = 59
+
+  def corrected_value
+    return value if !air_temperature
+
+    air_temp_f = to_fahrenheit
+    return value*((1.00130346-0.000134722124*air_temp_f+0.00000204052596*air_temp_f**2-0.00000000232820948*air_temp_f**3)/(1.00130346-0.000134722124*CALIBRATION_TEMP_F+0.00000204052596*CALIBRATION_TEMP_F**2-0.00000000232820948*CALIBRATION_TEMP_F**3))
+
+  end
+
+  def to_fahrenheit
+    (air_temperature * 1.8) + 32
+  end
 
 end
