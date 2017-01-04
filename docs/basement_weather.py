@@ -20,10 +20,10 @@ headers = {'content-type': 'application/json'}
 r = requests.post(url, data=json.dumps(payload), headers=headers)
 
 #send to twitter
-api = twitter.Api(consumer_key="QeT4mgIqGqAi6y7sKEgkcR8HQ",
-                  consumer_secret="zM2dFpIk3YojKBdlZOwTCC82tEP3RxffLZG6MQJQwTBeckG8Pk",
-                  access_token_key="771330006068830209-4QTn99ThbM6V2DT0hxlNymQOLykbmMM",
-                  access_token_secret="akoFlkoNgov5aDJrmkCJTtSqQgvs2Q2Phl0rjVgVjh9Zi")
+api = twitter.Api(consumer_key="",
+                  consumer_secret="",
+                  access_token_key="",
+                  access_token_secret="")
 
 status = api.PostUpdate(message+" "+date)
 print "%s just posted: %s" % (status.user.name, status.text)
