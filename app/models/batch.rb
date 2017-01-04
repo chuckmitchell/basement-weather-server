@@ -17,9 +17,9 @@ class Batch < ActiveRecord::Base
     original_measurement = specific_gravities.where(stage: "Starting Primary").first
     final_measurement = specific_gravities.where(stage: "Bottling").first
 
-    return nil unless original_measurement || final_measurement
+    return nil unless original_measurement && final_measurement
 
-    if original_measurement.temperature || final_measurement.temperature
+    if original_measurement.temperature && final_measurement.temperature
       og = original_measurement.corrected_value
       fg = final_measurement.corrected_value
     else
