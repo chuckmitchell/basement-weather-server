@@ -130,6 +130,7 @@ var loadChart = function(container, dataPoints, options) {
   }
 
   var chart = new CanvasJS.Chart(container, {
+      zoomEnabled: true, 
       title: title,
       axisY: axisY,
       toolTip: toolTip,
