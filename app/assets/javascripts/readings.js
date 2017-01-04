@@ -91,9 +91,9 @@ $('document').ready(function () {
     };
 
 
-    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Room Temp"}, color: '#866D42', axisY: tempAxisY, toolTip: tempToolTip});
-    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Room Humidity"}, color: '#4C7240', axisY: humidAxisY, toolTip: humidityToolTip});
-    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Vessel Temp"}, color: '#40708C', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Ambient Temperature"}, color: '#866D42', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Ambient Humidity"}, color: '#4C7240', axisY: humidAxisY, toolTip: humidityToolTip});
+    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Probe Temperature"}, color: '#40708C', axisY: tempAxisY, toolTip: tempToolTip});
 
   })
 });
