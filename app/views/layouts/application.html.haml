@@ -41,9 +41,9 @@
               %span.reading= "#{@last_reading.probe1_temperature}℃"
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
+            %li{class: active_class('readings')}
               %a{href: root_url} Home
-            %li
+            %li{class: active_class('batches')}
               %a{href: batches_url} Batches
             / %li
             /   %a{href: "#contact"} Contact
