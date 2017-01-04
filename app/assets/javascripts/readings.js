@@ -132,7 +132,7 @@ var loadChart = function(container, dataPoints, options) {
   var chart = new CanvasJS.Chart(container, {
       zoomEnabled: true, 
       title: title,
-      axisX: { valueFormatString: "MMM DD hh TT", labelAngle: -20 },
+      axisX: { valueFormatString: "MMM D - htt", labelAngle: -20 },
       axisY: axisY,
       toolTip: toolTip,
       data: data
