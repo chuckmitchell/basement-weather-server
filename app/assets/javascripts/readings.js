@@ -44,24 +44,24 @@ $('document').ready(function () {
       }
     };
 
-    var aleStrip = {    
-      opacity: stripOpacity,    
-      startValue:20,
-      endValue:22,                
+    var aleStrip = {
+      opacity: stripOpacity,
+      startValue:17.8,
+      endValue:21.1,
       color:"#FCBA04",
       label:"Ale"
     };
     var lagerStrip = {
-      opacity: stripOpacity,    
-      startValue: 7,
-      endValue: 13,
+      opacity: stripOpacity,
+      startValue: 12,
+      endValue: 15,
       color:"#2274A5",
       label:"Lager"
     }
-    var tempAxisY = { 
+    var tempAxisY = {
       minimum: 5,
       maximum: 25,
-      title: "℃", 
+      title: "℃",
       stripLines: [aleStrip, lagerStrip]
     };
 
@@ -77,7 +77,7 @@ $('document').ready(function () {
       }
     };
     var moldStrip = {
-      opacity: stripOpacity,    
+      opacity: stripOpacity,
       startValue: 50,
       endValue: 100,
       color: "#4C7240",
@@ -86,7 +86,7 @@ $('document').ready(function () {
     var humidAxisY = {
       minimum: 0,
       maximum: 100,
-      title: "%", 
+      title: "%",
       stripLines: [moldStrip]
     };
 
@@ -99,7 +99,7 @@ $('document').ready(function () {
 });
 
 var loadChart = function(container, dataPoints, options) {
-  var data = [              
+  var data = [
         {
           // Change type to "doughnut", "line", "splineArea", etc.
           type: "spline",
@@ -130,7 +130,7 @@ var loadChart = function(container, dataPoints, options) {
   }
 
   var chart = new CanvasJS.Chart(container, {
-      zoomEnabled: true, 
+      zoomEnabled: true,
       title: title,
       axisX: { valueFormatString: "MMM D - htt", labelAngle: -20 },
       axisY: axisY,
