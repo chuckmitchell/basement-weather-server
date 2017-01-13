@@ -30,4 +30,8 @@ class SpecificGravity < ActiveRecord::Base
     (temperature * 1.8) + 32
   end
 
+  def to_s
+    value.round(4);
+  end
+
 end
