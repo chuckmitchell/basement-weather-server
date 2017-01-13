@@ -37,6 +37,10 @@ class Batch < ActiveRecord::Base
   def status
     status = ""
 
+    if !original_gravity || !final_gravity
+      return "Not started yet"
+    end
+
     if final_gravity.stage == "Intermediate"
       status << "Still fermenting after #{time_ago_in_words original_gravity.created_at}"
     end
