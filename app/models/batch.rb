@@ -38,7 +38,7 @@ class Batch < ActiveRecord::Base
     status = ""
 
     if !original_gravity || !final_gravity
-      return "Not started yet"
+      return status
     end
 
     if final_gravity.stage == "Intermediate"
