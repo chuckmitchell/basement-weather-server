@@ -7,16 +7,18 @@
     Edit
   %h1= @batch.name
 
-.row
-  .col-md-8
-  .col-md-4.text-right.status
-    %em= @batch.status
+
 .row
   .col-md-6= simple_format @batch.details
   .col-md-2
   .col-md-4.text-right.alcohol_content
     - if @batch.alcohol_content
-      = "#{'%.2f' % @batch.alcohol_content} %"
+      .value
+        ="#{'%.2f' % @batch.alcohol_content}"
+        %span.small> %
+
+    .status
+      %em= @batch.status
 
 .row
   .col-xs-12
