@@ -41,10 +41,11 @@
                 %td= specific_gravity.value
                 %td= specific_gravity.temperature
                 %td= specific_gravity.stage
-                %td= specific_gravity.created_at.to_formatted_s(:short)  
+                %td= specific_gravity.created_at.to_formatted_s(:short)
                 %td= link_to 'Show', batch_specific_gravity_path(@batch,specific_gravity)
                 %td= link_to 'Edit', edit_batch_specific_gravity_path(@batch,specific_gravity)
                 %td= link_to 'Destroy', batch_specific_gravity_path(@batch,specific_gravity), data: { confirm: 'Are you sure?' }, method: :delete
-        = link_to new_batch_specific_gravity_path(@batch), class: 'btn btn-primary' do
-          %span.glyphicon.glyphicon-plus
-          New Specific gravity
+
+    = link_to new_batch_specific_gravity_path(@batch), class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-plus
+      New Specific gravity
