@@ -18,14 +18,14 @@
 //= require bootstrap-datetimepicker
 //= require_tree .
 
+/* global moment */
 $( document ).ready(function() {
   $.each($('.datetimepicker'), function(index, element) {
     var date = moment($(element).attr('value'));
-   $(element).datetimepicker({
-        inline: true,
-        sideBySide: true
+    $(element).datetimepicker({
+      inline: true,
+      sideBySide: true
     });
     $(element).data('DateTimePicker').defaultDate(date);
-
   });
 });

@@ -1,6 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+/* global CanvasJS */
 $('document').ready(function () {
 
   if ( !($('body').hasClass('readings') && $('body').hasClass('index')) ) {
@@ -8,7 +9,7 @@ $('document').ready(function () {
   }
 
   $.getJSON('/readings.json', function(data) {
-    dataPoints = [];
+    var dataPoints = [];
     dataPoints[0] = [];
     dataPoints[1] = [];
     dataPoints[2] = [];
@@ -17,9 +18,9 @@ $('document').ready(function () {
       var temperature = parseFloat(data[i].temperature);
       var humidity = parseFloat(data[i].humidity);
       var probe1Temperature = parseFloat(data[i].probe1_temperature);
-      var created_at_tokens = data[i].created_at_local.split(" ");
+      var created_at_tokens = data[i].created_at_local.split(' ');
       var length = created_at_tokens.length;
-      var label = created_at_tokens[length-2]+" "+created_at_tokens[length-1]
+      var label = created_at_tokens[length-2]+' '+created_at_tokens[length-1];
       dataPoints[0].push({
         x: date, y: temperature, label: label
       });
@@ -35,9 +36,9 @@ $('document').ready(function () {
 
     var tempToolTip = {
       contentFormatter: function(e) {
-        var str = "";
+        var str = '';
         for (var i = 0; i < e.entries.length; i++) {
-          var  temp = "<span style='color: "+e.entries[i].dataSeries.color+"'>"+e.entries[i].dataPoint.label + "</span> "+  e.entries[i].dataPoint.y + "℃<br/>" ;
+          var  temp = '<span style=\'color: '+e.entries[i].dataSeries.color+'\'>'+e.entries[i].dataPoint.label + '</span> '+  e.entries[i].dataPoint.y + '℃<br/>' ;
           str = str.concat(temp);
         }
         return str;
@@ -48,29 +49,29 @@ $('document').ready(function () {
       opacity: stripOpacity,
       startValue:17.8,
       endValue:21.1,
-      color:"#FCBA04",
-      label:"Ale"
+      color:'#FCBA04',
+      label:'Ale'
     };
     var lagerStrip = {
       opacity: stripOpacity,
       startValue: 12,
       endValue: 15,
-      color:"#2274A5",
-      label:"Lager"
-    }
+      color:'#2274A5',
+      label:'Lager'
+    };
     var tempAxisY = {
       minimum: 5,
       maximum: 25,
-      title: "℃",
+      title: '℃',
       stripLines: [aleStrip, lagerStrip]
     };
 
 
     var humidityToolTip = {
       contentFormatter: function(e) {
-        var str = "";
+        var str = '';
         for (var i = 0; i < e.entries.length; i++) {
-          var  temp = "<span style='color: "+e.entries[i].dataSeries.color+"'>"+e.entries[i].dataPoint.label + "</span> "+  e.entries[i].dataPoint.y + "%<br/>" ;
+          var  temp = '<span style=\'color: '+e.entries[i].dataSeries.color+'\'>'+e.entries[i].dataPoint.label + '</span> '+  e.entries[i].dataPoint.y + '%<br/>';
           str = str.concat(temp);
         }
         return str;
@@ -80,36 +81,34 @@ $('document').ready(function () {
       opacity: stripOpacity,
       startValue: 50,
       endValue: 100,
-      color: "#4C7240",
-      label: "Possible Mold"
-    }
+      color: '#4C7240',
+      label: 'Possible Mold'
+    };
     var humidAxisY = {
       minimum: 0,
       maximum: 100,
-      title: "%",
+      title: '%',
       stripLines: [moldStrip]
     };
 
-
-    loadChart('temperature-chart' ,dataPoints[0], {title: {text: "Ambient Temperature"}, color: '#866D42', axisY: tempAxisY, toolTip: tempToolTip});
-    loadChart('humidity-chart' ,dataPoints[1], {title: {text: "Ambient Humidity"}, color: '#4C7240', axisY: humidAxisY, toolTip: humidityToolTip});
-    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: "Probe Temperature"}, color: '#40708C', axisY: tempAxisY, toolTip: tempToolTip});
-
-  })
+    loadChart('temperature-chart' ,dataPoints[0], {title: {text: 'Ambient Temperature'}, color: '#866D42', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('humidity-chart' ,dataPoints[1], {title: {text: 'Ambient Humidity'}, color: '#4C7240', axisY: humidAxisY, toolTip: humidityToolTip});
+    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: 'Probe Temperature'}, color: '#40708C', axisY: tempAxisY, toolTip: tempToolTip});
+  });
 });
 
 var loadChart = function(container, dataPoints, options) {
   var data = [
-        {
-          // Change type to "doughnut", "line", "splineArea", etc.
-          type: "spline",
-          markerSize: 1,
-          dataPoints: dataPoints
-        }
-      ]
+    {
+      // Change type to "doughnut", "line", "splineArea", etc.
+      type: 'spline',
+      markerSize: 1,
+      dataPoints: dataPoints
+    }
+  ];
 
   if (options) {
-    for (key in options) {
+    for (var key in options) {
       data[0][key] = options[key];
     }
   }
@@ -130,12 +129,12 @@ var loadChart = function(container, dataPoints, options) {
   }
 
   var chart = new CanvasJS.Chart(container, {
-      zoomEnabled: true,
-      title: title,
-      axisX: { valueFormatString: "MMM D - htt", labelAngle: -20 },
-      axisY: axisY,
-      toolTip: toolTip,
-      data: data
-    });
-    chart.render();
+    zoomEnabled: true,
+    title: title,
+    axisX: { valueFormatString: 'MMM D - htt', labelAngle: -20 },
+    axisY: axisY,
+    toolTip: toolTip,
+    data: data
+  });
+  chart.render();
 };
