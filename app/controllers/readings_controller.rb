@@ -4,7 +4,7 @@ class ReadingsController < ApplicationController
   # GET /readings
   # GET /readings.json
   def index
-    @readings = Reading.all.where("created_at > ?", Date.today - 2.weeks).order(created_at: :desc)
+    @readings = Reading.all.where('created_at > ?', Time.zone.today - 2.weeks).order(created_at: :desc)
   end
 
   # GET /readings/1
@@ -62,13 +62,14 @@ class ReadingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reading
-      @reading = Reading.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def reading_params
-      params.require(:reading).permit(:temperature, :humidity, :probe1_temperature)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reading
+    @reading = Reading.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def reading_params
+    params.require(:reading).permit(:temperature, :humidity, :probe1_temperature)
+  end
 end

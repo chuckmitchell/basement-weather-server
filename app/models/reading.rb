@@ -9,6 +9,6 @@
 #  updated_at         :datetime         not null
 #  probe1_temperature :decimal(, )      default(0.0)
 #
-
+# Temperature, humidity and probe temperature with a timestamp.
 class Reading < ActiveRecord::Base
 end

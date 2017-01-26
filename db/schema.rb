@@ -14,30 +14,30 @@
 ActiveRecord::Schema.define(version: 20170103230839) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "batches", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.text     "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'batches', force: :cascade do |t|
+    t.string   'name',       null: false
+    t.text     'details'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "readings", force: :cascade do |t|
-    t.decimal  "temperature"
-    t.decimal  "humidity"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.decimal  "probe1_temperature", default: 0.0
+  create_table 'readings', force: :cascade do |t|
+    t.decimal  'temperature'
+    t.decimal  'humidity'
+    t.datetime 'created_at',                       null: false
+    t.datetime 'updated_at',                       null: false
+    t.decimal  'probe1_temperature', default: 0.0
   end
 
-  create_table "specific_gravities", force: :cascade do |t|
-    t.decimal  "value",       null: false
-    t.string   "stage",       null: false
-    t.integer  "batch_id",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.decimal  "temperature"
+  create_table 'specific_gravities', force: :cascade do |t|
+    t.decimal  'value',       null: false
+    t.string   'stage',       null: false
+    t.integer  'batch_id',    null: false
+    t.datetime 'created_at',  null: false
+    t.datetime 'updated_at',  null: false
+    t.decimal  'temperature'
   end
 
 end

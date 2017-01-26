@@ -1,1 +1,1 @@
-json.partial! "readings/reading", reading: @reading
+json.partial! 'readings/reading', reading: @reading

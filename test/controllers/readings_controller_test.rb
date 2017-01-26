@@ -5,18 +5,18 @@ class ReadingsControllerTest < ActionController::TestCase
     @reading = readings(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:readings)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create reading" do
+  test 'should create reading' do
     assert_difference('Reading.count') do
       post :create, reading: { humidity: @reading.humidity, temperature: @reading.temperature }
     end
@@ -24,22 +24,22 @@ class ReadingsControllerTest < ActionController::TestCase
     assert_redirected_to reading_path(assigns(:reading))
   end
 
-  test "should show reading" do
+  test 'should show reading' do
     get :show, id: @reading
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @reading
     assert_response :success
   end
 
-  test "should update reading" do
+  test 'should update reading' do
     patch :update, id: @reading, reading: { humidity: @reading.humidity, temperature: @reading.temperature }
     assert_redirected_to reading_path(assigns(:reading))
   end
 
-  test "should destroy reading" do
+  test 'should destroy reading' do
     assert_difference('Reading.count', -1) do
       delete :destroy, id: @reading
     end

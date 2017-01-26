@@ -63,17 +63,18 @@ class SpecificGravitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_specific_gravity
-      @specific_gravity = SpecificGravity.find(params[:id])
-    end
 
-    def set_batch 
-      @batch = Batch.find(params[:batch_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_specific_gravity
+    @specific_gravity = SpecificGravity.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def specific_gravity_params
-      params.require(:specific_gravity).permit(:value, :temperature, :stage, :batch_id)
-    end
+  def set_batch
+    @batch = Batch.find(params[:batch_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def specific_gravity_params
+    params.require(:specific_gravity).permit(:value, :temperature, :stage, :batch_id)
+  end
 end

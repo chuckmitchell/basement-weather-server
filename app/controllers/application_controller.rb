@@ -3,11 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
-  before_filter :get_last_reading
+  before_action :last_reading
 
-
-  def get_last_reading
+  def last_reading
     @last_reading = Reading.last
   end
-
 end

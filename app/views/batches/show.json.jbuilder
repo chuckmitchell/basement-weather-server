@@ -1,1 +1,1 @@
-json.partial! "batches/batch", batch: @batch
+json.partial! 'batches/batch', batch: @batch

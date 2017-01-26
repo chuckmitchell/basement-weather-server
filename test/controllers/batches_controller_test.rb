@@ -5,18 +5,18 @@ class BatchesControllerTest < ActionController::TestCase
     @batch = batches(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:batches)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create batch" do
+  test 'should create batch' do
     assert_difference('Batch.count') do
       post :create, batch: { details: @batch.details, name: @batch.name }
     end
@@ -24,22 +24,22 @@ class BatchesControllerTest < ActionController::TestCase
     assert_redirected_to batch_path(assigns(:batch))
   end
 
-  test "should show batch" do
+  test 'should show batch' do
     get :show, id: @batch
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @batch
     assert_response :success
   end
 
-  test "should update batch" do
+  test 'should update batch' do
     patch :update, id: @batch, batch: { details: @batch.details, name: @batch.name }
     assert_redirected_to batch_path(assigns(:batch))
   end
 
-  test "should destroy batch" do
+  test 'should destroy batch' do
     assert_difference('Batch.count', -1) do
       delete :destroy, id: @batch
     end
