@@ -59,12 +59,21 @@ $('document').ready(function () {
       color:'#2274A5',
       label:'Lager'
     };
+    var officeStrip = {
+      opacity: stripOpacity,
+      startValue: 21,
+      endValue: 23,
+      color:'#FCBA04',
+      label:'Comfort Zone'
+    }
     var tempAxisY = {
       minimum: 5,
       maximum: 25,
       title: '℃',
-      stripLines: [aleStrip, lagerStrip]
+      stripLines: [officeStrip]//[aleStrip, lagerStrip]
     };
+    
+    
 
 
     var humidityToolTip = {
@@ -79,7 +88,7 @@ $('document').ready(function () {
     };
     var moldStrip = {
       opacity: stripOpacity,
-      startValue: 50,
+      startValue: 55,
       endValue: 100,
       color: '#4C7240',
       label: 'Possible Mold'
