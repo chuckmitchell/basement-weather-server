@@ -70,7 +70,7 @@ $('document').ready(function () {
       minimum: 5,
       maximum: 25,
       title: '℃',
-      stripLines: [officeStrip]//[aleStrip, lagerStrip]
+      stripLines: [aleStrip, lagerStrip] //[officeStrip]
     };
     
     
