@@ -65,7 +65,7 @@ $('document').ready(function () {
       endValue: 23,
       color:'#FCBA04',
       label:'Comfort Zone'
-    }
+    };
     var tempAxisY = {
       minimum: 5,
       maximum: 25,
