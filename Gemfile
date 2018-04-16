@@ -60,4 +60,4 @@ group :development do
   gem 'annotate'
 end
 
-ruby '2.3.0'
+ruby '2.3.4'
