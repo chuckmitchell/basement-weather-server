@@ -66,13 +66,19 @@ $('document').ready(function () {
       color:'#FCBA04',
       label:'Comfort Zone'
     };
-    var tempAxisY = {
+    var tempAxisYAmbiant = {
       minimum: 10,
       maximum: 30,
       title: '℃',
       stripLines: [aleStrip, lagerStrip] //[officeStrip]
     };
     
+    var tempAxisYProbe = {
+      minimum: -20,
+      maximum: 30,
+      title: '℃',
+      stripLines: [aleStrip, lagerStrip] //[officeStrip]
+    };
     
 
 
@@ -100,9 +106,9 @@ $('document').ready(function () {
       stripLines: [moldStrip]
     };
 
-    loadChart('temperature-chart' ,dataPoints[0], {title: {text: 'Ambient Temperature'}, color: '#866D42', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('temperature-chart' ,dataPoints[0], {title: {text: 'Ambient Temperature'}, color: '#866D42', axisY: tempAxisYAmbiant, toolTip: tempToolTip});
     loadChart('humidity-chart' ,dataPoints[1], {title: {text: 'Ambient Humidity'}, color: '#4C7240', axisY: humidAxisY, toolTip: humidityToolTip});
-    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: 'Probe Temperature'}, color: '#40708C', axisY: tempAxisY, toolTip: tempToolTip});
+    loadChart('vessel-temp-chart', dataPoints[2], {title: {text: 'Probe Temperature'}, color: '#40708C', axisY: tempAxisYProbe, toolTip: tempToolTip});
   });
 });
 
