@@ -11,7 +11,7 @@
 #  temperature :decimal(, )
 #
 # Specific gravity reading (density basically.) Distilled water should be 1.00 at room temperature
-class SpecificGravity < ActiveRecord::Base
+class SpecificGravity < ApplicationRecord
   belongs_to :batch
 
   STAGES = ['Starting Primary', 'Intermediate', 'Bottling'].freeze

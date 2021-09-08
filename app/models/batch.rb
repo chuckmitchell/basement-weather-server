@@ -10,7 +10,7 @@
 #
 
 # Represents a delicious batch of beer (or wine I guess).
-class Batch < ActiveRecord::Base
+class Batch < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
   has_many :specific_gravities
