@@ -67,8 +67,8 @@ $('document').ready(function () {
       label:'Comfort Zone'
     };
     var tempAxisY = {
-      minimum: 5,
-      maximum: 25,
+      minimum: 10,
+      maximum: 30,
       title: '℃',
       stripLines: [aleStrip, lagerStrip] //[officeStrip]
     };
