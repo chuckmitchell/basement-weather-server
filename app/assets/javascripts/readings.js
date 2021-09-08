@@ -32,7 +32,7 @@ $('document').ready(function () {
       });
     }
 
-    var stripOpacity = .1;
+    var stripOpacity = .2;
 
     var tempToolTip = {
       contentFormatter: function(e) {
