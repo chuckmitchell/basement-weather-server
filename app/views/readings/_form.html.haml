@@ -1,4 +1,5 @@
-= form_for @reading, html: { class: "form-horizontal", role: "form" } do |f|
+-# = form_with model: @exhibition, local: true do |f|
+= form_with model: @reading, local: true do |f|
   -if @reading.errors.any?
     .alert.alert-danger.alert-dismissable{role: "alert"}
       %button.close{type: "button", data: {dismiss: "alert"} }
@@ -25,7 +26,7 @@
   .form-group
     = f.label :created_at, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_field :created_at, {class: 'form-control datetimepicker', "data-provide" => 'datetimepicker'}
+      = f.text_field :created_at, {class: 'form-control datetimepicker', "data-provide" => 'datepicker'}
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit class: 'btn btn-primary'

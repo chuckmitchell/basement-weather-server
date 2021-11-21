@@ -1,4 +1,4 @@
-class CreateSpecificGravities < ActiveRecord::Migration
+class CreateSpecificGravities < ActiveRecord::Migration[6.1]
   def change
     create_table :specific_gravities do |t|
       t.decimal :value, null:false

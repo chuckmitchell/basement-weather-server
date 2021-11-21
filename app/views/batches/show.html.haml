@@ -1,9 +1,9 @@
 .page-header
   = link_to batches_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
+    %i.fas.fa-arrow-left
     Back
   = link_to edit_batch_path(@batch), class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-pencil
+    %i.fas.fa-edit
     Edit
   %h1= @batch.name
 
@@ -49,5 +49,5 @@
                 %td= link_to 'Destroy', batch_specific_gravity_path(@batch,specific_gravity), data: { confirm: 'Are you sure?' }, method: :delete
 
     = link_to new_batch_specific_gravity_path(@batch), class: 'btn btn-primary' do
-      %span.glyphicon.glyphicon-plus
+      %i.fas.fa-plus
       New Specific gravity

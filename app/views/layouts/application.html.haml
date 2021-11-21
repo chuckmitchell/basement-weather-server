@@ -9,37 +9,32 @@
     %meta{'http-equiv': "refresh", content: "600"}
     %title Basement Weather
 
-    =favicon_link_tag 'Beer_Favicon-128x128.png'
+    = favicon_link_tag 'Beer_Favicon-128x128.png'
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     /[if lt IE 9]
     = javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"
 
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    -# = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+    -# = javascript_pack_tag 'main'
+    -# = javascript_pack_tag 'canvasjs'
+    %script{src:"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"}
+    %script{src:"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"}
+
     = csrf_meta_tags
   %body{"class": "#{controller_name} #{action_name}"}
     %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
       .container
         .navbar-header
-          %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
+          %button.navbar-toggler.navbar-toggle.collapsed{type: "button", "data-toggle":"collapse", "data-target":"#navbar", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
           = link_to "Basement Weather", root_path, class: "navbar-brand"
-        / - if !@last_reading.present?
-        /   .current-conditions.pull-right
-        /     %span.date= @last_reading.created_at.strftime("Last reading on %a, %b %e %Y @ %I:%M %p")
-        /     %span.temperature
-        /       Temp:
-        /       %span.reading= "#{@last_reading.temperature}℃"
-        /     %span.humidity
-        /       Humidity:
-        /       %span.reading= "#{@last_reading.humidity}%"
-        /     %span.probe1
-        /       Probe 1:
-        /       %span.reading= "#{@last_reading.probe1_temperature}℃"
+
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li{class: active_class('readings')}
@@ -49,9 +44,7 @@
             %li
               %a{href: "http://www.northernbrewer.com/priming-sugar-calculator", target: "_blank"}
                 Priming Calculator
-                %span.glyphicon.glyphicon-new-window
-            / %li
-            /   %a{href: "#contact"} Contact
+                %i.fas.fa-external-link-square-alt
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

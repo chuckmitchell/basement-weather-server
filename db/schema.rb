@@ -43,27 +43,27 @@ ActiveRecord::Schema.define(version: 2021_09_08_122443) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "batches", id: :serial, force: :cascade do |t|
+  create_table "batches", force: :cascade do |t|
     t.string "name", null: false
     t.text "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "readings", id: :serial, force: :cascade do |t|
+  create_table "readings", force: :cascade do |t|
     t.decimal "temperature"
     t.decimal "humidity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.decimal "probe1_temperature", default: "0.0"
   end
 
-  create_table "specific_gravities", id: :serial, force: :cascade do |t|
+  create_table "specific_gravities", force: :cascade do |t|
     t.decimal "value", null: false
     t.string "stage", null: false
     t.integer "batch_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.decimal "temperature"
   end
 

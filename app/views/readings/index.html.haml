@@ -6,8 +6,8 @@
       .panel.panel-warning
         .panel-heading
           .row
-            .col-xs-4
-              %span.glyphicon.glyphicon-fire
+            %div.col-xs-4{ style:"text-align: center"}
+              %i.fas.fa-thermometer-half
             .col-xs-8.text-right
               %h1
                 = "#{@last_reading.temperature}℃"
@@ -18,8 +18,8 @@
       .panel.panel-success
         .panel-heading
           .row
-            .col-xs-4
-              %span.glyphicon.glyphicon-tint
+            %div.col-xs-4{ style:"text-align: center"}
+              %i.fas.fa-tint
             .col-xs-8.text-right
               %h1
                 = "#{@last_reading.humidity}%"
@@ -30,8 +30,10 @@
       .panel.panel-info
         .panel-heading
           .row
-            .col-xs-4
-              %span.glyphicon.glyphicon-fire
+            %div.col-xs-4{ style:"text-align: center"}
+              %i.fas.fa-water{style: "margin-right: -54px; color: white"}
+              %i.fas.fa-thermometer-half
+
             .col-xs-8.text-right
               %h1
                 = "#{@last_reading.probe1_temperature}℃"
@@ -53,7 +55,7 @@
   %h1 Listing readings
   .new-reading
     = link_to new_reading_path, class: 'btn btn-primary' do
-      %span.glyphicon.glyphicon-plus
+      %i.fas.fa-plus
       New Reading
   %table.table.table-striped.table-bordered.table-hover
     %thead
